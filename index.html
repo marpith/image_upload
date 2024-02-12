@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login or Sign Up</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <div class="form-container" id="loginFormContainer">
+            <h2>Login</h2>
+            <form id="loginForm" action="/login" method="POST">
+                <input type="text" name="username" placeholder="Username" required><br>
+                <input type="password" name="password" placeholder="Password" required><br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+
+        <div class="signup-link">
+            <p>Don't have an account? <button id="signupButton">Sign Up</button></p>
+        </div>
+
+        <div class="form-container" id="signupFormContainer" style="display: none;">
+            <h2>Sign Up</h2>
+            <form id="signupForm" action="/signup" method="POST">
+                <input type="text" name="username" placeholder="Username" required><br>
+                <input type="password" name="password" placeholder="Password" required><br>
+                <input type="submit" value="Sign Up">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            window.location.href = "/upload.html";
+        });
+
+        document.getElementById("signupButton").addEventListener("click", function(event) {
+            event.preventDefault();
+            document.getElementById("loginFormContainer").style.display = "none"; 
+            document.getElementById("signupFormContainer").style.display = "block"; 
+        });
+
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            window.location.href = "/upload.html"; 
+        });
+    </script>
+</body>
+</html>
+
+
+
+
